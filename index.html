@@ -15,13 +15,16 @@
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#5a3329}}
   :root[data-theme="dark"]{--page:#5a3329}
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{background:var(--page);overflow:hidden;position:relative}
+  html{height:100%}
+  body{background:var(--page);position:relative;min-height:100%;display:flex;justify-content:center;align-items:center}
   body::before{content:"";position:fixed;inset:-40px;background:var(--bg) center/cover;filter:blur(28px);z-index:0}
   .stage{
-    position:absolute;z-index:1;top:0;left:50%;transform:translateX(-50%);
-    height:100%;aspect-ratio:1438/2576;
+    position:relative;z-index:1;flex:none;
+    height:100dvh;aspect-ratio:1438/2576;
     background:var(--bg) center/100% 100% no-repeat;
+  }
+  @media (max-width:700px){
+    .stage{width:100%;height:auto}
   }
   .hs{position:absolute;display:block;text-decoration:none;color:transparent;transition:background .2s ease,box-shadow .2s ease}
   .pill{border-radius:999px}
